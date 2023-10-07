@@ -39,7 +39,7 @@ export default defineComponent ({
 
       draggable: false,
       // Это моё REST API
-      url: 'https://we-game-api.onrender.com/api/tasks/',
+      url: 'https://we-game-api.onrender.com/api/tasks/', 
       form: {
           name: '', 
           first_name: '',
