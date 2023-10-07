@@ -22,7 +22,8 @@ interface State {
           type: String, 
           product: String, 
           comment: String
-        }
+        },
+        err: String
 }
 
 export default defineComponent ({
@@ -109,7 +110,7 @@ export default defineComponent ({
 
         const res = await axios.get(this.url)
         if(res.data.code) {
-          alert('У меня легла БД. Сообщите мне и я её рестартну: ' + res.data.code)
+          this.err = 'У меня легла БД. Сообщите мне и я её рестартну: ' + res.data.code
         }
         console.log('getTasks', res.data)
         this.clearData()
@@ -159,6 +160,7 @@ export default defineComponent ({
 
 <template>
   <div class="container">
+    <span class="error">{{ err }}</span>
     <div class="form">
       <div class="block">
         <span>Имя</span>
@@ -345,6 +347,11 @@ export default defineComponent ({
   </div>
 </template>
 <style scoped>
+.error {
+  margin: 20px;
+  font-size: 40px;
+  font-weight: bold;
+}
 .pointer {
   cursor: pointer;
   margin: 0px 4px;
