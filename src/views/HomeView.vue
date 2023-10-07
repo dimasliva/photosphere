@@ -39,7 +39,7 @@ export default defineComponent ({
 
       draggable: false,
       // Это моё REST API
-      url: 'https://we-game-api.onrender.com/api/tasks/', 
+      url: 'https://we-game-api.onrender.com/api/tasks', 
       form: {
           name: '', 
           first_name: '',
@@ -106,7 +106,11 @@ export default defineComponent ({
             this.completed = [] 
       },
       async getTasks() {
+
         const res = await axios.get(this.url)
+        if(res.data.code) {
+          alert('У меня легла БД. Сообщите мне и я её рестартну: ' + res.data.code)
+        }
         console.log('getTasks', res.data)
         this.clearData()
 
