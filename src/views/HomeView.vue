@@ -160,7 +160,7 @@ export default defineComponent ({
 
 <template>
   <div class="container">
-    <span v-if="err.length !== 0" class="error">{{ err }}</span>
+    <span v-if="err" class="error">{{ err }}</span>
     <div class="form">
       <div class="block">
         <span>Имя</span>
