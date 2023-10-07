@@ -50,7 +50,8 @@ export default defineComponent ({
           type: '', 
           product: '', 
           comment: ''
-        }
+        }, 
+        err: ''
       };
     },
     methods: {
